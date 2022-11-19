@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第五週作業</title>
+    <!-- normalize.css v8.0.1 -->
+    <link rel="stylesheet" href="./css/normalize-v8.0.1.css" />
+    <!-- style css -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="add-ticket-content">
+        <div class="box">
+          <div class="img-block">
+            <img src="./img/main_img.png" alt="" />
+            <img src="./img/logo.png" alt="" />
+          </div>
+          <div class="input-block">
+            <div class="title-block">
+              <img src="./img/icon/add.png" alt="新增icon" />
+              <h1 class="title">新增旅遊套票</h1>
+            </div>
+
+            <div class="fill-in-block">
+              <div class="input-group">
+                <label for="package-name">套票名稱</label>
+                <input
+                  type="text"
+                  id="package-name"
+                  value=""
+                  placeholder="請填寫套票名稱"
+                />
+              </div>
+              <div class="input-group">
+                <label for="img-url">圖片網址</label>
+                <input
+                  type="text"
+                  id="img-url"
+                  value=""
+                  placeholder="請填寫圖片網址"
+                />
+              </div>
+              <div class="input-group">
+                <label for="attraction-area">景點地區</label>
+                <select name="" id="attraction-area">
+                  <option value="">請選擇景點地區</option>
+                  <option value="">台北</option>
+                  <option value="">台中</option>
+                  <option value="">高雄</option>
+                </select>
+              </div>
+              <div class="input-group">
+                <label for="package-price">套票金額</label>
+                <input
+                  type="number"
+                  id="package-price"
+                  value=""
+                  placeholder="請填寫套票金額"
+                />
+              </div>
+              <div class="input-group">
+                <label for="package-group-num">套票組數</label>
+                <input
+                  type="number"
+                  id="package-group-num"
+                  value=""
+                  placeholder="請填寫套票組數"
+                  min="1"
+                />
+              </div>
+              <div class="input-group">
+                <label for="package-group-num">套票星級</label>
+                <input
+                  type="number"
+                  id="package-group-num"
+                  value=""
+                  placeholder="請填寫套票星級"
+                  min="1"
+                  max="10"
+                />
+              </div>
+              <div class="input-group">
+                <label for="package-group-num">套票描述</label>
+                <textarea
+                  name=""
+                  id=""
+                  maxlength="100"
+                  placeholder="請填寫套票描述（限 100 字）"
+                ></textarea>
+              </div>
+            </div>
+            <button type="button">新增套票</button>
+          </div>
+        </div>
+      </div>
+      <!-- 地區搜尋 -->
+      <div class="area-search">
+        <div class="area-search-wrap">
+          <div class="search-select-group">
+            <select name="" id="" placeholder="地區搜尋">
+              <option value="">全部地區</option>
+              <option value="">台北</option>
+              <option value="">台中</option>
+              <option value="">高雄</option>
+            </select>
+            <p>本次搜尋共<span> 6 </span>筆資料</p>
+          </div>
+          <div class="search-result">
+            <!-- 測試 -->
+            <div class="result-group">
+              <div class="photo">
+                <div class="region">
+                  <p>台北</p>
+                </div>
+                <div class="photo-block">
+                  <img src="/img/travel_1.png" alt="" />
+                </div>
+              </div>
+              <div class="content">
+                <div class="fraction">
+                  <p>8.6</p>
+                </div>
+                <p class="title">綠島自由行套裝行程</p>
+                <p class="text-block">
+                  嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+                </p>
+                <div class="bottom-block">
+                  <div class="remain-group-num">
+                    <img src="/img/icon/notice.png" alt="" />
+                    <p class="remain-text">剩下最後<span>8</span>組</p>
+                  </div>
+                  <div class="price">
+                    <span>TWD</span>
+                    $1,280
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="result-group">
+              <div class="photo">
+                <div class="region">
+                  <p>台北</p>
+                </div>
+                <div class="photo-block">
+                  <img src="/img/travel_1.png" alt="" />
+                </div>
+              </div>
+              <div class="content">
+                <div class="fraction">
+                  <p>8.6</p>
+                </div>
+                <p class="title">綠島自由行套裝行程</p>
+                <p class="text-block">
+                  嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+                </p>
+                <div class="bottom-block">
+                  <div class="remain-group-num">
+                    <img src="/img/icon/notice.png" alt="" />
+                    <p class="remain-text">剩下最後<span>8</span>組</p>
+                  </div>
+                  <div class="price">
+                    <span>TWD</span>
+                    $1,280
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="result-group">
+              <div class="photo">
+                <div class="region">
+                  <p>台北</p>
+                </div>
+                <div class="photo-block">
+                  <img src="/img/travel_1.png" alt="" />
+                </div>
+              </div>
+              <div class="content">
+                <div class="fraction">
+                  <p>8.6</p>
+                </div>
+                <p class="title">綠島自由行套裝行程</p>
+                <p class="text-block">
+                  嚴選超高CP值綠島自由行套裝行程，多種綠島套裝組合，提供台東綠島來回船票、綠島環島機車、綠島民宿住宿，行程加贈『綠島浮潛體驗』以及『綠島生態導覽』，讓你用輕鬆的綠島套裝自由行，也能深度認識綠島在地文化。
+                </p>
+                <div class="bottom-block">
+                  <div class="remain-group-num">
+                    <img src="/img/icon/notice.png" alt="" />
+                    <p class="remain-text">剩下最後<span>8</span>組</p>
+                  </div>
+                  <div class="price">
+                    <span>TWD</span>
+                    $1,280
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,483 @@
+// 字體
+$font-family-ZH: Noto Sans;
+$font-family-EN: Roboto;
+// 字體粗細
+$font-weight-normal: normal;
+$font-weight-medium: medium;
+$font-weight-bold: bold;
+// 字體大小
+$font-large: 32px;
+$font-title-large: 24px;
+$font-title-normal: 20px;
+$font-normal: 16px;
+//顏色
+$white: #fff;
+$bg-color: #f7f7f7;
+$input-bg-color: #fafafa;
+$main-color: #00807e;
+$second-main-color: #64c3bf;
+$font-color: #818a91;
+
+//RWD
+@mixin mobile {
+  @media (min-width: 375px) {
+    @content;
+  }
+}
+
+@mixin pad {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin web {
+  @media (min-width: 1180px) {
+    @content;
+  }
+}
+
+//共用
+%box-shadow {
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+@mixin box-shadow {
+  box-shadow: 0px 3px 6px #00000029;
+}
+
+%main-color-font {
+  color: $main-color;
+}
+
+%border-bottom {
+  border-bottom: 3px solid $main-color;
+}
+
+%input-style {
+  width: 100%;
+  height: 38px;
+  border: none;
+  border-bottom: 1px solid $main-color;
+  background-color: $input-bg-color;
+  border-radius: 4px 4px 0 0;
+  padding-left: 12px;
+  color: $font-color;
+  font-weight: $font-weight-normal;
+  margin-top: 4px;
+}
+
+%focus-visible {
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid $second-main-color;
+}
+
+%select-style {
+  border: 1px solid #ced4da;
+  background-color: white;
+}
+
+%mobile-wrap {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%border-radius-5 {
+  border-radius: 5px;
+}
+
+@mixin position($attributes) {
+  position: $attributes;
+}
+
+@mixin display($attributes) {
+  display: $attributes;
+}
+
+@mixin width-height($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+
+@mixin border-radius($value) {
+  border-radius: $value;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+}
+
+.title {
+  @extend %main-color-font;
+  font-size: $font-title-large;
+}
+
+button {
+  display: block;
+  background-color: $main-color;
+  color: white;
+  font-size: $font-title-normal;
+  @include padding(10px, 40px, 10px, 40px);
+  @include margin(34px, auto, 60px, auto);
+  border: none;
+  @include border-radius(5px);
+  cursor: pointer;
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: $second-main-color;
+  }
+}
+
+body {
+  font-family: $font-family-ZH, $font-family-EN;
+  font-size: $font-normal;
+  color: $font-color;
+  line-height: 1.5;
+
+  .wrap {
+    background-color: $white;
+
+    //新增旅遊套票
+    .add-ticket-content {
+      @extend %mobile-wrap;
+      @include web {
+        width: 100%;
+        margin: 0;
+        padding-top: 120px;
+        padding-bottom: 100px;
+      }
+
+      .box {
+        @include web {
+          display: flex;
+          justify-content: space-between;
+          max-width: 920px;
+          margin-left: auto;
+          margin-right: auto;
+          @include box-shadow;
+          @include border-radius(12px);
+          padding: 60px 95px;
+        }
+        //新增旅遊套票-圖片
+        .img-block {
+          @include web {
+            max-width: 350px;
+          }
+          & :nth-child(1) {
+            width: 100%;
+            margin-bottom: 15px;
+          }
+
+          & :nth-child(2) {
+            display: none;
+            @include web {
+              display: block;
+              width: 100%;
+            }
+          }
+        }
+
+        //新增旅遊套票-輸入區
+        .input-block {
+          @include web {
+            width: calc(100% - 380px);
+          }
+          //新增旅遊套票-輸入區-標題
+          .title-block {
+            @include display(flex);
+            align-items: center;
+            @extend %border-bottom;
+            padding-bottom: 4px;
+
+            .title {
+              padding-left: 6px;
+            }
+          }
+
+          //新增旅遊套票-輸入區-輸入
+          .fill-in-block {
+            .input-group {
+              margin-bottom: 16px;
+              @include web {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+
+              &:nth-child(1) {
+                margin-top: 32px;
+              }
+
+              label {
+                @extend %main-color-font;
+                font-weight: $font-weight-bold;
+                @include web {
+                  min-width: 64px;
+                  margin-right: 31px;
+                }
+              }
+
+              input {
+                @extend %input-style;
+
+                &:focus-visible {
+                  @extend %focus-visible;
+                }
+              }
+
+              select {
+                @extend %input-style;
+                position: relative;
+
+                &:focus-visible {
+                  @extend %focus-visible;
+                }
+              }
+
+              textarea {
+                @extend %input-style;
+                width: 100%;
+                min-height: 119px;
+                padding-top: 12px;
+                &:focus-visible {
+                  @extend %focus-visible;
+                }
+              }
+            }
+          }
+          button {
+            @include web {
+              margin-right: 0;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+    //地區搜尋
+    .area-search {
+      background-color: $bg-color;
+      @include padding(56px, 0, 22px, 0);
+
+      .area-search-wrap {
+        @extend %mobile-wrap;
+        @include web {
+          max-width: 1110px;
+        }
+      }
+
+      // 選擇地區
+      .search-select-group {
+        margin-bottom: 40px;
+
+        @include web {
+          display: flex;
+          align-items: center;
+        }
+
+        select {
+          width: 100%;
+          @extend %input-style;
+          @extend %select-style;
+          &:focus-visible {
+            @extend %focus-visible;
+          }
+          @include web {
+            max-width: 255px;
+            margin-right: 30px;
+          }
+        }
+
+        p {
+          margin-top: 10px;
+          text-align: center;
+          @include web {
+            margin-top: 0;
+          }
+        }
+      }
+
+      // 結果顯示區
+      .search-result {
+        @include pad {
+          display: flex;
+          flex-wrap: wrap;
+          margin-right: -15px;
+          margin-left: -15px;
+        }
+
+        //結果內容群組
+        .result-group {
+          @extend %box-shadow;
+          @extend %border-radius-5;
+          margin-bottom: 42px;
+
+          &:hover {
+            .photo {
+              .photo-block {
+                img {
+                  transform: scale(1.1);
+                }
+              }
+            }
+          }
+
+          @include pad {
+            width: calc(50% - 30px);
+            margin-left: 15px;
+            margin-right: 15px;
+          }
+
+          @include web {
+            width: calc(100% / 3 - 30px);
+            max-width: 350px;
+          }
+
+          //圖片
+          .photo {
+            @include position(relative);
+
+            .region {
+              padding: 8px 20px;
+              text-align: center;
+              background-color: $second-main-color;
+              border-radius: 0 3px 3px 0;
+              @include position(absolute);
+              top: -12px;
+              left: 0;
+              z-index: 99;
+
+              p {
+                color: white;
+                font-size: $font-title-normal;
+              }
+            }
+
+            .photo-block {
+              width: 100%;
+              overflow: hidden;
+              @extend %border-radius-5;
+              border-bottom-right-radius: 0;
+              border-bottom-left-radius: 0;
+
+              img {
+                width: 100%;
+                transition: all 0.5s;
+              }
+            }
+          }
+
+          //文案內容
+          .content {
+            padding: 20px;
+            @include position(relative);
+
+            //評分分數
+            .fraction {
+              background: $main-color;
+              @include position(absolute);
+              left: 0;
+              top: -20px;
+              padding: 5px 8px;
+              border-radius: 0 3px 3px 0;
+
+              p {
+                font-size: $font-normal;
+                color: white;
+              }
+            }
+
+            //行程內容
+            .title {
+              position: relative;
+              margin-bottom: 16px;
+
+              &::after {
+                position: absolute;
+                content: "";
+                bottom: -4px;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: $main-color;
+              }
+            }
+            //行程文案內容
+            .text-block {
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 5;
+              overflow: hidden;
+            }
+            .bottom-block {
+              margin-top: 22px;
+              @include mobile {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+              // 剩下組數
+              .remain-group-num {
+                display: flex;
+                align-items: center;
+                img {
+                  margin-right: 6px;
+                }
+                .remain-text {
+                  color: $main-color;
+                }
+              }
+              // 價格
+              .price {
+                color: $main-color;
+                font-size: $font-large;
+                font-weight: $font-weight-bold;
+                font-family: $font-family-EN;
+                display: flex;
+                align-items: center;
+                span {
+                  font-size: $font-normal;
+                  margin-right: 4px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
