@@ -1,5 +1,5 @@
 // 旅遊行程資料
-let data = [
+let travelData = [
   {
     id: 0,
     name: "綠島自由行套裝行程",
@@ -67,3 +67,63 @@ let data = [
     rate: 8.6,
   },
 ];
+// =========================================
+// 初始化資料
+//預設狀態為套票全部顯示
+function init() {
+  const searchResult = document.querySelector(".search-result");
+  let searchResultContent = "";
+  travelData.forEach(function (item, index) {
+    //標題
+    let name = item.name;
+    //圖片
+    let imgUrl = item.imgUrl;
+    //地區
+    let area = item.area;
+    //描述
+    let description = item.description;
+    //剩下幾組
+    let group = item.group;
+    //價格
+    let price = item.price.toLocaleString("en-US");
+    //console.log(price);
+    //星級
+    let rate = item.rate;
+    let content = `
+      <div class="result-group">
+                  <div class="photo">
+                    <div class="region">
+                      <p>${area}</p>
+                    </div>
+                    <div class="photo-block">
+                      <img src=${imgUrl} alt="" />
+                    </div>
+                  </div>
+                  <div class="content">
+                    <div class="fraction">
+                      <p>${rate}</p>
+                    </div>
+                    <p class="title">${name}</p>
+                    <p class="text-block">
+                      ${description}
+                    </p>
+                    <div class="bottom-block">
+                      <div class="remain-group-num">
+                        <img src="./img/icon/notice.png" alt="" />
+                        <p class="remain-text">剩下最後<span>${group}</span>組</p>
+                      </div>
+                      <div class="price">
+                        <span>TWD</span>
+                        $${price}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      `;
+    searchResultContent += content;
+  });
+  //console.log(searchResultContent);
+  searchResult.innerHTML = searchResultContent;
+}
+init();
+// =========================================
